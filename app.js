@@ -1,5 +1,5 @@
 var express = require('express');
-
+var port = process.env.PORT || 3000; 
 
 var todoController = require('./controller/todoController');
 var app = express();
@@ -14,5 +14,6 @@ app.use(express.static('./public'))
 todoController(app);
 
 //listen to port
-app.listen(3000);
-console.log('You are listening to port 3000');
+app.listen(port, function () {
+    console.log('Listening to port ' + port);
+});
